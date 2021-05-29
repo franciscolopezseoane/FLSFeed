@@ -107,8 +107,7 @@
 				A7504C582662364300A8A375 /* ViewController */,
 				A7504C572662364000A8A375 /* Model */,
 				A7504C562662363B00A8A375 /* Resources */,
-				A7504C5A266237A900A8A375 /* FeedItem.swift */,
-				A7504C5C26623D6400A8A375 /* FeedLoader.swift */,
+				A7504C5E26623EC700A8A375 /* FeedFeature */,
 			);
 			path = FLSFeed;
 			sourceTree = "<group>";
@@ -164,6 +163,15 @@
 				A7504C342662354500A8A375 /* Info.plist */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		A7504C5E26623EC700A8A375 /* FeedFeature */ = {
+			isa = PBXGroup;
+			children = (
+				A7504C5A266237A900A8A375 /* FeedItem.swift */,
+				A7504C5C26623D6400A8A375 /* FeedLoader.swift */,
+			);
+			path = FeedFeature;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
