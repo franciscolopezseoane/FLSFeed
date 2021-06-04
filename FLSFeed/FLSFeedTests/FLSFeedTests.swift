@@ -11,13 +11,15 @@ import XCTest
 
 class RemoteFeedLoader {
     let client: HTTPClient
+    let url: URL
     
-    init(client: HTTPClient) {
+    init(url: URL, client: HTTPClient) {
+        self.url = url
         self.client = client
     }
    
     func load(){
-        client.get(from: URL(string: "http://a-url.com")!)
+        client.get(from: url)
     }
 }
 
@@ -39,20 +41,26 @@ class FLSFeedTests: XCTestCase {
     
 //FIRST TEST!
     func test_init_doesNotRequestDataFromURL(){
+        
+        let url = URL(string: "http://a-given-url.com")!
         let client = HTTPClientSpy()
 
-        _ = RemoteFeedLoader(client: client)
+        _ = RemoteFeedLoader(url: url, client: client)
         
         XCTAssertNil(client.requestedURL)
     }
     
     
     func test_init_requestDataFromURL(){
+        let url = URL(string: "http://a-given-url.com")!
         let client = HTTPClientSpy()
-        let sut = RemoteFeedLoader(client: client)
+        let sut = RemoteFeedLoader(url: url, client: client)
         sut.load()
         
-        XCTAssertNotNil(client.requestedURL)
+//        XCTAssertNotNil(client.requestedURL)
+  
+        // i want my url matches
+        XCTAssertEqual(client.requestedURL, url)
     }
     
 }
